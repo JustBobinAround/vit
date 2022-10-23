@@ -74,8 +74,9 @@ class BaseListBox(urwid.ListBox):
         self.set_focus(0)
 
     def keypress_end(self, size):
-        self.set_focus(len(self.body) - 1)
-        self.set_focus_valign('bottom')
+        if len(self.body) > 0:
+            self.set_focus(len(self.body) - 1)
+            self.set_focus_valign('bottom')
 
     def keypress_screen_top(self, size):
         top, _, _ = self.get_top_middle_bottom_rows(size)
